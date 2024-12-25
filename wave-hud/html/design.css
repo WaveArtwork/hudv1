@@ -1,0 +1,298 @@
+@font-face {
+    font-family: 'Outfit';
+    src: url(./Outfit-Regular.ttf);
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    font-family: 'Outfit', sans-serif;
+}
+
+body {
+    /* background-color:black; */
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    background-position: center;
+    background-size: cover;
+}
+
+.serverInfo {
+    display: block;
+}
+
+.serverInfo[v-cloak] {
+    display: none;
+}
+
+.serverInfo .logo {
+    position: absolute;
+    margin-left: 1500px;
+    margin-top: 5px;
+    width: 200px;
+    height: auto;
+}
+
+.serverInfo .Id {
+    position: absolute;
+    margin-left: 1450px;
+    margin-top: 30px;
+    width: 200px;
+    height: auto;
+    color: white;
+    font-weight: 500;
+}
+
+.serverInfo .Players { 
+    position: absolute;
+    margin-left: 1380px;
+    width: 200px;
+    height: auto;
+    color: white;
+    margin-top: 30px;
+    font-weight: 500;
+}
+
+.serverInfo .discord .Discord {
+    color: white;
+    position: absolute;
+    margin-left: 1540px;
+    margin-top: 80px;
+    font-weight: 600;
+}
+
+.serverInfo .discord .Discord2 {
+    color: rgb(0, 108, 248);
+    position: absolute;
+    margin-left: 1622px;
+    margin-top: 80px;
+    font-weight: 600;
+}
+
+.serverInfo .logoDis {
+    color: white;
+    margin-left: 1515px;
+    margin-top: 80px;
+    position: absolute;
+}
+
+.serverInfo .money .textCash {
+    color: rgba(0, 255, 106, 0.479);
+    opacity: 0.8;
+    font-family: 'Outfit';
+    font-weight: bold;
+    position: absolute;
+    margin-top: 105px;
+    right: 20px;
+    z-index: 3;
+}
+
+.serverInfo .money .cash {
+    color: white;
+    position: absolute;
+    text-align: right;
+    max-width: 200px;
+    white-space: nowrap;
+    margin-top: 125px;
+    right: 50px;
+    font-weight: 600;
+    z-index: 1;
+}
+
+.serverInfo .cashLogo {
+    color: white;
+    position: absolute;
+    margin-top: 125px;
+    right: 20px;
+    z-index: 3;
+}
+
+.serverInfo .money .bank {
+    color: white;
+    position: absolute;
+    text-align: right;
+    max-width: 200px;
+    white-space: nowrap;
+    margin-top: 170px;
+    right: 50px;
+    font-weight: 600;
+    z-index: 1;
+}
+
+.serverInfo .money .textBank {
+    color: rgba(0, 255, 106, 0.479);
+    opacity: 0.8;
+    font-family: 'Outfit';
+    font-weight: bold;
+    position: absolute;
+    margin-top: 145px;
+    right: 20px;
+    z-index: 3;
+}
+
+.serverInfo .bankLogo {
+    color: white;
+    position: absolute;
+    margin-top: 170px;
+    right: 20px;
+    z-index: 3;
+}
+
+.serverInfo .time .Time {
+    color: white;
+    position: absolute;
+    margin-top: 80px;
+    margin-left: 1450px;
+    font-weight: 500;
+}
+
+.serverInfo .time .Day {
+    color: white;
+    position: absolute;
+    margin-top: 80px;
+    margin-left: 1350px;
+    font-weight: 500;
+}
+
+.serverInfo .userName {
+    color: white;
+    display: flex;
+    align-items: center;
+    font-size: 1.5vh;
+    margin-top: 26px;
+    position: fixed;
+    left: auto;
+    right: 400px;
+    top: 0px;
+    font-family: 'Outfit';
+    padding: 4px 4px;
+    border-radius: 5px;
+    white-space: nowrap;
+    z-index: 1;
+    background: rgba(0, 0, 0, 0);
+}
+
+.serverInfo .userName span {
+    margin-left: 8px;
+    max-width: none;
+    overflow: visible;
+}
+
+.serverInfo .userName i {
+    margin-right: 5px;
+    z-index: 1;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 1.7vh;
+    height: 1.7vh;
+    font-size: 1vh;
+    border-radius: 50%;
+    background: radial-gradient(rgba(0, 0, 0, 0.322), rgba(0, 0, 0, 0.322));
+    outline: 0.05vh solid #ffffff;
+    text-shadow: 0 0 15px;
+}
+
+.serverInfo .userName.long-name {
+    margin-left: 1130px;
+    transition: margin-left 0.3s ease-in-out;
+}
+
+.serverInfo .userName.very-long-name {
+    margin-left: 1030px;
+    transition: margin-left 0.3s ease-in-out;
+}
+
+.serverInfo .watermark {
+    width: 50%;
+    height: 5%;
+    display: flex;
+    align-items: center;
+}
+
+.serverInfo .watermark p {
+    font-size: 0.8vw;
+    font-weight: 500;
+    padding-left: 1%;
+    opacity: 0.4;
+    color: white;
+    display: flex;
+}
+
+.serverInfo .watermark p span {
+    background: var(--Orange-Gradient, linear-gradient(277deg, #00a2ff -2.2%, #00a2ff 100%));
+    background-clip: text;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    font-weight: 800;
+    font-size: 1em;
+}
+
+.serverInfo .Safezone {
+    position: absolute;
+    right: 20px;
+    margin-top: 200px;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    transition: all 0.3s ease;
+}
+
+.serverInfo .Safezone .safezone-icon {
+    color: #ff3333;
+    transition: all 0.3s ease;
+}
+
+.serverInfo .Safezone.active .safezone-icon {
+    color: #00ff6a;
+}
+
+.serverInfo .Safezone .safezone-text {
+    display: flex;
+    flex-direction: column;
+    gap: 2px;
+}
+
+.serverInfo .Safezone .safezone-label {
+    font-size: 12px;
+    font-weight: 600;
+    color: rgba(255, 255, 255, 0.7);
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+}
+
+.serverInfo .Safezone .safezone-status {
+    font-size: 14px;
+    font-weight: 700;
+    color: #ff3333;
+    transition: color 0.3s ease;
+}
+
+.serverInfo .Safezone.active .safezone-status {
+    color: #00ff6a;
+}
+
+.serverInfo .Safezone i {
+    font-size: 18px;
+    text-shadow: 0 0 10px currentColor;
+}
+
+.cash.pulse {
+    animation: cashPulse 1s ease;
+}
+
+@keyframes cashPulse {
+    0% {
+        color: #ffffff;
+        transform: scale(1);
+    }
+    35% {
+        color: #2ecc71;
+        transform: scale(1.03);
+        text-shadow: 0 0 5px rgba(46, 204, 113, 0.3);
+    }
+    100% {
+        color: #ffffff;
+        transform: scale(1);
+    }
+}
