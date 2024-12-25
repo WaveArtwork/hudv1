@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Wave - Hud</title>
+    <link rel="stylesheet" href="design.css">
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@400;500;600&display=swap" rel="stylesheet">
+    <script src="https://kit.fontawesome.com/6f13879d21.js" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/vue@2.6.14"></script>
+</head>
+<body>
+    <div id="app" class="serverInfo">
+        <img src="https://files.catbox.moe/qclcta.png" class="logo">
+        <div class="Id">
+            <i class="fa-solid fa-fingerprint"></i>
+            <span>{{ id }}</span>
+        </div>
+        <div class="Players">
+            <i class="fa-solid fa-person"></i>
+            <span>{{ players }}</span>
+        </div>
+        <div class="discord">
+            <span class="Discord">discord.gg/</span>
+            <span class="Discord2">wavedesign</span>
+        </div>
+        <div class="logoDis">
+            <i class="fa-brands fa-discord"></i>
+        </div>
+        <div class="money">
+            <span class="textCash">CASH:</span>
+            <span :class="{ 'cash': true, 'pulse': cashPulse }">{{ formatNumber(cash) }}</span>
+            <span class="textBank">BANK:</span>
+            <span class="bank">{{ formatNumber(bank) }}</span>
+        </div>
+        <div class="cashLogo">
+            <i class="fa-solid fa-wallet"></i>
+        </div>
+        <div class="bankLogo">
+            <i class="fa-solid fa-building-columns"></i>
+        </div>
+        <div class="time">
+            <span class="Time">{{ Time }}</span>
+            <span class="Day">{{ Day }}</span>
+        </div>
+        <div class="userName" :class="usernameLength">
+            <i class="fa-solid fa-user"></i>
+            <span class="username">{{ username }}</span>
+        </div>
+        <div class="watermark">
+            <p><span>Wave Romania</span> - Advanced Artworks - www.wavedesign.ro - discord.com/wavedesign</p>
+        </div>
+        <div class="Safezone" :class="{ active: inSafezone }">
+            <div class="safezone-icon">
+                <i class="fa-solid fa-shield"></i>
+            </div>
+            <div class="safezone-text">
+                <span class="safezone-label">SAFEZONE</span>
+                <span class="safezone-status">{{ inSafezone ? 'PROTEJAT' : 'NEPROTEJAT' }}</span>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        const app = new Vue({
+            el: '#app',
+            data: {
+                id: '',
+                players: '',
+                Time: '',
+                Day: '',
+                cash: 0,
+                bank: 0,
+                username: 'sef pe salajean doar ma fut',
+                cashPulse: false,
+                lastCash: 0,
+                inSafezone: false
+            },
+            computed: {
+                usernameLength() {
+                    const length = this.username.length;
+                    if (length > 25) return 'very-long-name';
+                    if (length > 15) return 'long-name';
+                    return '';
+                }
+            },
+            methods: {
+                formatNumber(num) {
+                    if (!num) return '0';
+                    return num.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",");
+                },
+                triggerCashPulse() {
+                    if (this.cash > this.lastCash) {
+                        this.cashPulse = true;
+                        setTimeout(() => {
+                            this.cashPulse = false;
+                        }, 1000);
+                    }
+                    this.lastCash = this.cash;
+                }
+            },
+            mounted() {
+                window.addEventListener('message', (event) => {
+                    if (event.data.type === "update") {
+                        const newCash = event.data.money || 0;
+                        const oldCash = this.cash;
+                        
+                        this.id = event.data.id || '';
+                        this.username = event.data.username || '';
+                        this.players = event.data.players || '';
+                        this.cash = newCash;
+                        this.bank = event.data.bank || 0;
+                        this.Time = event.data.time || '';
+                        this.Day = event.data.date || '';
+                        this.inSafezone = event.data.inSafezone || false;
+
+                        if (newCash > oldCash) {
+                            this.cashPulse = true;
+                            setTimeout(() => {
+                                this.cashPulse = false;
+                            }, 1000);
+                        }
+                    }
+                });
+            }
+        });
+    </script>
+</body>
+</html>
